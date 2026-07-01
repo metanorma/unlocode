@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Unlocode
+module Unlocodes
   # UN/LOCODE function classifier.
   #
   # Single-letter codes identifying the transport function a LOCODE serves.

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'unlocode'
+require 'unlocodes'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
@@ -15,7 +15,7 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 
   config.after do
-    Unlocode.reset_registry!
+    Unlocodes.reset_registry!
   end
 end
 

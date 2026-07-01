@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Unlocode
+module Unlocodes
   # UN/LOCODE status (change indicator).
   #
   # Two-letter codes documenting how a LOCODE entry was last amended relative

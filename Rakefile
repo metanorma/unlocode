@@ -13,7 +13,7 @@ namespace :unlocode do
   desc 'Fetch the UNCEFACT UN/LOCODE vocabulary (default tag: 2025-1)'
   task :fetch, [:tag] do |_t, args|
     tag = args[:tag] || ENV.fetch('UNLOCODE_TAG', '2025-1')
-    require_relative 'lib/unlocode/data/fetcher'
-    Unlocode::Data::Fetcher.call(tag: tag)
+    require_relative 'lib/unlocodes/data/fetcher'
+    Unlocodes::Data::Fetcher.call(tag: tag)
   end
 end

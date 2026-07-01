@@ -3,7 +3,7 @@
 require 'json'
 require_relative 'entry'
 
-module Unlocode
+module Unlocodes
   # Parses a UN/LOCODE JSON-LD vocabulary file into {Entry} instances.
   #
   # The UNCEFACT vocabulary (`vocab/unlocode.jsonld`) is a single JSON-LD
@@ -39,21 +39,21 @@ module Unlocode
     class << self
       # Load entries from a file path on disk.
       # @param path [String] absolute or relative path to a JSON-LD file
-      # @return [Array<Unlocode::Entry>]
+      # @return [Array<Unlocodes::Entry>]
       def load_file(path)
         load_json(File.read(path))
       end
 
       # Load entries from a JSON-LD string.
       # @param json [String] a JSON-LD document
-      # @return [Array<Unlocode::Entry>]
+      # @return [Array<Unlocodes::Entry>]
       def load_json(json)
         parse(JSON.parse(json, symbolize_names: false))
       end
 
       # Load entries from a pre-parsed JSON-LD hash.
       # @param data [Hash] parsed JSON-LD
-      # @return [Array<Unlocode::Entry>]
+      # @return [Array<Unlocodes::Entry>]
       def parse(data)
         extract_graph(data).filter_map { |node| build_entry(node) if unlocode_node?(node) }
       end

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Unlocode do
+RSpec.describe Unlocodes do
   after { described_class.reset_registry! }
 
   describe '.registry' do
@@ -25,10 +25,11 @@ RSpec.describe Unlocode do
 
   describe 'delegated query shortcuts' do
     before do
-      registry = Unlocode::Registry.from_entries([
-                                                   Unlocode::Entry.new(code: 'CNSHA', country: 'CN', name: 'Shanghai'),
-                                                   Unlocode::Entry.new(code: 'USNYC', country: 'US', name: 'New York')
-                                                 ])
+      registry = Unlocodes::Registry.from_entries([
+                                                    Unlocodes::Entry.new(code: 'CNSHA', country: 'CN',
+                                                                         name: 'Shanghai'),
+                                                    Unlocodes::Entry.new(code: 'USNYC', country: 'US', name: 'New York')
+                                                  ])
       allow(described_class).to receive(:registry).and_return(registry)
     end
 

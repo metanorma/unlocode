@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Unlocode::Entry do
+RSpec.describe Unlocodes::Entry do
   let(:entry) do
     described_class.new(
       code: 'CNSHA',
@@ -28,8 +28,8 @@ RSpec.describe Unlocode::Entry do
   end
 
   describe '#functions' do
-    it 'wraps each code in a Unlocode::Function' do
-      expect(entry.functions).to all(be_a(Unlocode::Function))
+    it 'wraps each code in a Unlocodes::Function' do
+      expect(entry.functions).to all(be_a(Unlocodes::Function))
       expect(entry.functions.map(&:code)).to eq(%w[B A P])
     end
 
@@ -59,7 +59,7 @@ RSpec.describe Unlocode::Entry do
   describe '#coordinates' do
     it 'wraps lat/lon in a Coordinates value type' do
       coords = entry.coordinates
-      expect(coords).to be_a(Unlocode::Coordinates)
+      expect(coords).to be_a(Unlocodes::Coordinates)
       expect(coords.latitude).to eq(31.2)
       expect(coords.longitude).to eq(121.4)
     end

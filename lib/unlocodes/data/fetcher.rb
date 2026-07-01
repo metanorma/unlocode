@@ -4,7 +4,7 @@ require 'net/http'
 require 'uri'
 require 'fileutils'
 
-module Unlocode
+module Unlocodes
   module Data
     # Downloads the UNCEFACT UN/LOCODE vocabulary from the upstream GitLab
     # repository and stores it as `lib/unlocode/data/locode.jsonld`.
