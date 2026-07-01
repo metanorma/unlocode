@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Unlocode
+module Unlocodes
   # Geographic coordinates (WGS-84) for a LOCODE entry.
   #
   # Parsed from the LOCODE coordinate string ("DDMM[H]DDDMM[H]" where H is one

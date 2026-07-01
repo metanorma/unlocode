@@ -5,7 +5,7 @@ require_relative 'status'
 require_relative 'function'
 require_relative 'coordinates'
 
-module Unlocode
+module Unlocodes
   # A single UN/LOCODE entry.
   #
   # Stores wire-level fields as `lutaml-model` attributes and exposes typed

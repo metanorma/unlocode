@@ -3,7 +3,7 @@
 require 'forwardable'
 require_relative 'loader'
 
-module Unlocode
+module Unlocodes
   # In-memory, lazily-indexed registry over a set of {Entry} instances.
   #
   # The default registry is loaded from the vendored dataset bundled with the
@@ -50,7 +50,7 @@ module Unlocode
       end
 
       # Build a registry from an existing list of entries.
-      # @param entries [Array<Unlocode::Entry>]
+      # @param entries [Array<Unlocodes::Entry>]
       # @return [Registry]
       def from_entries(entries)
         new(entries)
@@ -65,7 +65,7 @@ module Unlocode
 
     # Exact-code lookup.
     # @param code [String] 5-char LOCODE (case-insensitive)
-    # @return [Unlocode::Entry, nil]
+    # @return [Unlocodes::Entry, nil]
     def find(code)
       return nil if code.nil?
 
@@ -83,7 +83,7 @@ module Unlocode
     #   registry.where(country: %w[CN HK], function: 'B')
     #   registry.where(name: /shanghai/i)
     #
-    # @return [Array<Unlocode::Entry>]
+    # @return [Array<Unlocodes::Entry>]
     def where(filters)
       filters.reduce(entries) { |scope, (key, value)| apply_filter(scope, key, value) }
     end

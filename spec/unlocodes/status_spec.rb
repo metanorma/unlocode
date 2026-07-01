@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Unlocode::Status do
+RSpec.describe Unlocodes::Status do
   describe '.cast' do
     it 'wraps a code string in a Status instance' do
       status = described_class.cast('AA')

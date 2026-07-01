@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'lib/unlocode/version'
+require_relative 'lib/unlocodes/version'
 
 Gem::Specification.new do |spec|
   spec.name = 'unlocodes'
-  spec.version = Unlocode::VERSION
+  spec.version = Unlocodes::VERSION
   spec.authors = ['Ribose Inc.']
   spec.email = ['open.source@ribose.com']
 

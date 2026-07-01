@@ -2,14 +2,14 @@
 
 require 'spec_helper'
 
-RSpec.describe Unlocode::Loader do
+RSpec.describe Unlocodes::Loader do
   let(:sample_path) { File.join(FIXTURES_DIR, 'locode_sample.jsonld') }
   let(:sample_json) { File.read(sample_path) }
 
   describe '.load_file' do
     it 'reads a JSON-LD file from disk' do
       entries = described_class.load_file(sample_path)
-      expect(entries).to all(be_a(Unlocode::Entry))
+      expect(entries).to all(be_a(Unlocodes::Entry))
       expect(entries.map(&:code).sort).to eq(%w[CNSHA HKHKG NLRTM USNYC])
     end
   end

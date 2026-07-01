@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Unlocode::Registry do
+RSpec.describe Unlocodes::Registry do
   let(:sample_path) { File.join(FIXTURES_DIR, 'locode_sample.jsonld') }
   let(:registry) { described_class.load_file(sample_path) }
 
@@ -33,17 +33,17 @@ RSpec.describe Unlocode::Registry do
 
   describe '.from_entries' do
     it 'builds a registry from a list of entries' do
-      entries = [Unlocode::Entry.new(code: 'XXXXX')]
+      entries = [Unlocodes::Entry.new(code: 'XXXXX')]
       registry = described_class.from_entries(entries)
       expect(registry.size).to eq(1)
-      expect(registry.find('XXXXX')).to be_a(Unlocode::Entry)
+      expect(registry.find('XXXXX')).to be_a(Unlocodes::Entry)
     end
   end
 
   describe '#find' do
     it 'looks up entries by 5-char code' do
       entry = registry.find('CNSHA')
-      expect(entry).to be_a(Unlocode::Entry)
+      expect(entry).to be_a(Unlocodes::Entry)
       expect(entry.name).to eq('Shanghai')
     end
 

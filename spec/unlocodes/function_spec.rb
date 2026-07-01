@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Unlocode::Function do
+RSpec.describe Unlocodes::Function do
   describe '.cast' do
     it 'wraps a single-letter code in a Function instance' do
       fn = described_class.cast('B')

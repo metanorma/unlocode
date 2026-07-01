@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Unlocode::Coordinates do
+RSpec.describe Unlocodes::Coordinates do
   describe '.parse' do
     it 'parses DDMM[H]DDDMM[H] coordinate strings' do
       coords = described_class.parse('3108N12150E')

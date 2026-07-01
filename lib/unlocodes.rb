@@ -4,19 +4,19 @@ require 'forwardable'
 require 'lutaml/model'
 require 'json'
 
-require_relative 'unlocode/version'
+require_relative 'unlocodes/version'
 
 # Vendored UN/LOCODE dataset as a queryable Ruby registry.
 #
 # The dataset is sourced from the UNECE/UNCEFACT LOCODE vocabulary published at
 # https://service.unece.org/trade/locode/ and distributed by this gem as a
 # bundled, offline JSON-LD representation. The registry loads once per process
-# and exposes a typed query API over `Unlocode::Entry` instances.
-module Unlocode
+# and exposes a typed query API over `Unlocodes::Entry` instances.
+module Unlocodes
   extend SingleForwardable
 
   class << self
-    # @return [Unlocode::Registry] the process-wide registry, loaded lazily
+    # @return [Unlocodes::Registry] the process-wide registry, loaded lazily
     def registry
       @registry ||= Registry.load_default
     end
@@ -29,11 +29,11 @@ module Unlocode
 
   def_delegators :registry, :find, :where, :each, :size, :count, :countries
 
-  autoload :Status, 'unlocode/status'
-  autoload :Function, 'unlocode/function'
-  autoload :Coordinates, 'unlocode/coordinates'
-  autoload :Entry, 'unlocode/entry'
-  autoload :Loader, 'unlocode/loader'
-  autoload :Registry, 'unlocode/registry'
-  autoload :Data, 'unlocode/data'
+  autoload :Status, 'unlocodes/status'
+  autoload :Function, 'unlocodes/function'
+  autoload :Coordinates, 'unlocodes/coordinates'
+  autoload :Entry, 'unlocodes/entry'
+  autoload :Loader, 'unlocodes/loader'
+  autoload :Registry, 'unlocodes/registry'
+  autoload :Data, 'unlocodes/data'
 end

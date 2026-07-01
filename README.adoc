@@ -14,21 +14,21 @@ Add to your Gemfile:
 
 [source,ruby]
 ----
-gem 'unlocode'
+gem 'unlocodes'
 ----
 
 == Usage
 
 [source,ruby]
 ----
-require 'unlocode'
+require 'unlocodes'
 
-Unlocode.find('CNSHA')                          # => #<Unlocode::Entry code="CNSHA" ...>
-Unlocode.find('NLRTM').functions.map(&:code)    # => ["B", "R", "T", "A", "P"]
-Unlocode.where(country: 'CN').count             # => 1670
-Unlocode.where(function: 'B').count             # => 17912  (sea ports)
-Unlocode.where(function: 'A').count             # => 9009   (airports)
-Unlocode.find('CNPDG').coordinates              # => #<Coordinates lat=31.2333 lon=121.5000>
+Unlocodes.find('CNSHA')                          # => #<Unlocodes::Entry code="CNSHA" ...>
+Unlocodes.find('NLRTM').functions.map(&:code)    # => ["B", "R", "T", "A", "P"]
+Unlocodes.where(country: 'CN').count             # => 1670
+Unlocodes.where(function: 'B').count             # => 17912  (sea ports)
+Unlocodes.where(function: 'A').count             # => 9009   (airports)
+Unlocodes.find('CNPDG').coordinates              # => #<Coordinates lat=31.2333 lon=121.5000>
 ----
 
 === Function codes
@@ -53,16 +53,16 @@ Use the letters in `where(function: ...)`:
 
 [source,ruby]
 ----
-Unlocode.where(function: 'B').count             # sea ports
-Unlocode.where(function: %w[B A]).count         # entries that are both port and airport
+Unlocodes.where(function: 'B').count             # sea ports
+Unlocodes.where(function: %w[B A]).count         # entries that are both port and airport
 ----
 
 === Distances
 
 [source,ruby]
 ----
-shanghai = Unlocode.find('CNPDG').coordinates
-rotterdam = Unlocode.find('NLRTM').coordinates
+shanghai = Unlocodes.find('CNPDG').coordinates
+rotterdam = Unlocodes.find('NLRTM').coordinates
 shanghai.distance_to(rotterdam)                 # => 8922.0 (km, great-circle)
 ----
 
