@@ -3,7 +3,7 @@
 require_relative 'lib/unlocode/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'unlocode'
+  spec.name = 'unlocodes'
   spec.version = Unlocode::VERSION
   spec.authors = ['Ribose Inc.']
   spec.email = ['open.source@ribose.com']
