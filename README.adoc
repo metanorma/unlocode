@@ -1,0 +1,88 @@
+= unlocode
+:toc: macro
+:homepage: https://github.com/metanorma/unlocode
+
+`unlocode` is a Ruby gem that exposes the UN/LOCODE dataset (United Nations Code for Trade and Transport Locations) as a queryable in-memory registry.
+
+The dataset is sourced from the UNECE/UNCEFACT LOCODE vocabulary, version-tagged `2025-1`: https://opensource.unicc.org/un/unece/uncefact/vocab-locode/-/tags/2025-1
+
+The full 2025-1 dataset (115,928 LOCODEs across 249 countries) is bundled inside the gem as `lib/unlocode/data/locode.jsonld` and loads lazily into a typed registry on first use.
+
+== Installation
+
+Add to your Gemfile:
+
+[source,ruby]
+----
+gem 'unlocode'
+----
+
+== Usage
+
+[source,ruby]
+----
+require 'unlocode'
+
+Unlocode.find('CNSHA')                          # => #<Unlocode::Entry code="CNSHA" ...>
+Unlocode.find('NLRTM').functions.map(&:code)    # => ["B", "R", "T", "A", "P"]
+Unlocode.where(country: 'CN').count             # => 1670
+Unlocode.where(function: 'B').count             # => 17912  (sea ports)
+Unlocode.where(function: 'A').count             # => 9009   (airports)
+Unlocode.find('CNPDG').coordinates              # => #<Coordinates lat=31.2333 lon=121.5000>
+----
+
+=== Function codes
+
+The vocabulary publishes functions as `unlcdf:1`..`unlcdf:9`. The gem maps them to the UN/LOCODE manual's letters:
+
+[cols="1,1,3", options="header"]
+|===
+|unlcdf:|Letter|Meaning
+|1|B|Port (sea)
+|2|R|Rail terminal
+|3|T|Road terminal
+|4|A|Airport
+|5|P|Postal exchange office
+|6|I|Inland water transport
+|7|F|Ferry port
+|8|V|Pipeline
+|9|O|Other / border crossing
+|===
+
+Use the letters in `where(function: ...)`:
+
+[source,ruby]
+----
+Unlocode.where(function: 'B').count             # sea ports
+Unlocode.where(function: %w[B A]).count         # entries that are both port and airport
+----
+
+=== Distances
+
+[source,ruby]
+----
+shanghai = Unlocode.find('CNPDG').coordinates
+rotterdam = Unlocode.find('NLRTM').coordinates
+shanghai.distance_to(rotterdam)                 # => 8922.0 (km, great-circle)
+----
+
+== Data refresh
+
+To refresh the bundled dataset when a new UNCEFACT edition is released:
+
+[source,sh]
+----
+bundle exec rake unlocode:fetch          # default tag: 2025-1
+UNLOCODE_TAG=2025-2 rake unlocode:fetch
+----
+
+If the upstream tag layout changes, point `UNLOCODE_PATH` at the full JSON-LD URL:
+
+[source,sh]
+----
+UNLOCODE_PATH=https://example.org/path/unlocode.jsonld rake unlocode:fetch
+----
+
+== License
+
+BSD-2-Clause. See link:LICENSE[].

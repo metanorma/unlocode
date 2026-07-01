@@ -1,0 +1,74 @@
+{
+  "@context": {
+    "geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "unlcd": "https://vocabulary.uncefact.org/unlocode#",
+    "unlcdc": "https://vocabulary.uncefact.org/unlocode-countries#",
+    "unlcdf": "https://vocabulary.uncefact.org/unlocode-functions#",
+    "unlcds": "https://vocabulary.uncefact.org/unlocode-subdivisions#",
+    "unlcdv": "https://vocabulary.uncefact.org/unlocode-vocab/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "unlcd:CNSHA",
+      "@type": "unlcdv:UNLOCODE",
+      "geo:lat": {"@type": "xsd:float", "@value": "31.2"},
+      "geo:long": {"@type": "xsd:float", "@value": "121.4"},
+      "rdf:value": "CNSHA",
+      "rdfs:label": {"@language": "en", "@value": "Shanghai"},
+      "unlcdv:countryCode": {"@id": "unlcdc:CN"},
+      "unlcdv:countrySubdivision": {"@id": "unlcds:CNSH"},
+      "unlcdv:functions": [
+        {"@id": "unlcdf:1"},
+        {"@id": "unlcdf:4"},
+        {"@id": "unlcdf:5"}
+      ]
+    },
+    {
+      "@id": "unlcd:NLRTM",
+      "@type": "unlcdv:UNLOCODE",
+      "geo:lat": {"@type": "xsd:float", "@value": "51.92"},
+      "geo:long": {"@type": "xsd:float", "@value": "4.48"},
+      "rdf:value": "NLRTM",
+      "rdfs:label": {"@language": "en", "@value": "Rotterdam"},
+      "unlcdv:countryCode": {"@id": "unlcdc:NL"},
+      "unlcdv:countrySubdivision": {"@id": "unlcds:NLZH"},
+      "unlcdv:functions": [
+        {"@id": "unlcdf:1"},
+        {"@id": "unlcdf:2"},
+        {"@id": "unlcdf:6"}
+      ]
+    },
+    {
+      "@id": "unlcd:HKHKG",
+      "@type": "unlcdv:UNLOCODE",
+      "geo:lat": {"@type": "xsd:float", "@value": "22.3"},
+      "geo:long": {"@type": "xsd:float", "@value": "114.17"},
+      "rdf:value": "HKHKG",
+      "rdfs:label": {"@language": "en", "@value": "Hong Kong"},
+      "unlcdv:countryCode": {"@id": "unlcdc:HK"},
+      "unlcdv:functions": [
+        {"@id": "unlcdf:1"},
+        {"@id": "unlcdf:4"},
+        {"@id": "unlcdf:7"}
+      ]
+    },
+    {
+      "@id": "unlcd:USNYC",
+      "@type": "unlcdv:UNLOCODE",
+      "geo:lat": {"@type": "xsd:float", "@value": "40.7"},
+      "geo:long": {"@type": "xsd:float", "@value": "-74.0"},
+      "rdf:value": "USNYC",
+      "rdfs:label": {"@language": "en", "@value": "New York"},
+      "unlcdv:countryCode": {"@id": "unlcdc:US"},
+      "unlcdv:countrySubdivision": {"@id": "unlcds:USNY"},
+      "unlcdv:functions": [
+        {"@id": "unlcdf:1"},
+        {"@id": "unlcdf:2"},
+        {"@id": "unlcdf:4"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+AllCops:
+  TargetRubyVersion: 3.1
+  NewCops: enable
+  SuggestExtensions: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'unlocode.gemspec'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'lib/unlocode/coordinates.rb'
+    - 'lib/unlocode/loader.rb'
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'lib/unlocode/loader.rb'
+
+Metrics/ClassLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes

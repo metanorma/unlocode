@@ -1,0 +1,17 @@
+Bundled UN/LOCODE dataset
+=========================
+
+`locode.jsonld` is the JSON-LD representation of the UN/LOCODE dataset from
+the UNCEFACT vocabulary tag declared in the gemspec / README.
+
+Populate (or refresh) it with:
+
+    bundle exec rake unlocode:fetch             # default tag: 2025-1
+    UNLOCODE_TAG=2025-2 rake unlocode:fetch
+
+If the upstream tag layout has changed, point `UNLOCODE_PATH` at the full
+JSON-LD URL:
+
+    UNLOCODE_PATH=https://example.org/path/locode.jsonld rake unlocode:fetch
+
+The file is loaded by `Unlocode::Registry.load_default`.
